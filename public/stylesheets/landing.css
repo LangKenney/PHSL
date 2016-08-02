@@ -1,0 +1,117 @@
+body {
+    background-color: black;
+    text-align: center;
+    color: white;
+    background-image: url('../images/Rocket_night.jpg');
+    /*background-image:url('http://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/nh-1-pluto-haze.jpg?itok=3ITqzn8y');*/
+    /*background-image:url('http://www.nasa.gov/sites/default/files/thumbnails/image/iss048e007924.jpg');*/
+    background-size:100% 150%;
+    background-repeat: no-repeat;
+    /*background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/d8/Topographic_map_of_Joshua_Tree_National_Park.JPG");*/
+    /*background-size: 100% 100%;*/
+}
+
+
+/****** LOGIN MODAL ******/
+#login-modal{
+  margin-top:150px;
+}
+
+.loginmodal-container {
+  padding: 30px;
+  max-width: 600px;
+  width: 100% !important;
+  background-color: black;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  
+}
+
+.loginmodal-container h1 {
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+.loginmodal-container input[type=submit] {
+  
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.loginmodal-container input[type=text], input[type=password] {
+  border-radius:5px;
+  text-align: center;
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  color: black;
+  -webkit-appearance: none;
+  background: white;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  /* border-radius: 2px; */
+  padding: 0 8px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.loginmodal-container input[type=text]:hover, input[type=password]:hover {
+  border: 1px solid #b9b9b9;
+  border-top: 1px solid #a0a0a0;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.loginmodal {
+  text-align: center;
+  font-size: 14px;
+  color: black;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  height: 36px;
+  padding: 0 8px;
+/* border-radius: 3px; */
+/* -webkit-user-select: none;
+  user-select: none; */
+}
+
+.loginmodal-submit {
+  /* border: 1px solid #3079ed; */
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #4d90fe;
+  padding: 17px 0px;
+  font-family: roboto;
+  font-size: 14px;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+.loginmodal-submit:hover {
+  /* border: 1px solid #2f5bb7; */
+  border: 0px;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #357ae8;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+}
+
+.loginmodal-container a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  opacity: 0.6;
+  transition: opacity ease 0.5s;
+} 
+
+.login-help{
+  font-size: 12px;
+}
