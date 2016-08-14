@@ -1,95 +1,40 @@
-        <style>
-            html{
-                overflow-y:scroll;
-            }
-            body {
-                /*padding-top:50px; */
-            }
-            #todo-list {
-                margin-bottom:30px;
-            }
+<style>
+    html{
+        overflow-y:scroll;
+    }
+    body {
+        /*padding-top:50px; */
+    }
+    #todo-list {
+        margin-bottom:30px;
+    }
 
-            #todo-row{
-                border: 1px solid #e6e6e6;
-            }
-            table, th, td {
-                border: 1px solid black;
-            }
-            .navbar-brand{
-                color:white !important;
-                padding: 0; 
-                -webkit-margin-before: 0;
-                -webkit-margin-after: 0;
+    #todo-row{
+        border: 1px solid #e6e6e6;
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+    .navbar-brand{
+        color:white !important;
+        padding: 0;
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
 
-            }
-            .topWidth{
-                padding-right: 15px;
-                padding-left: 15px;
-                margin-right: auto;
-                margin-left: auto;
-                width: 98% !important;
-            }
-            
-            .navbar-inverse{
-                background:#083363;
-                margin-bottom:10px;
-            }
-        </style>
+    }
+    .topWidth{
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        width: 98% !important;
+    }
 
-    </head>
+    .navbar-inverse{
+        background:#083363;
+        margin-bottom:10px;
+    }
 
-    <body>
-<!--sytle='padding:0;'-->
-<div ng-show="user!='Lang'"> 
-<img style='width:100%' src="https://lishacauthen.files.wordpress.com/2013/04/conan-finger-wave-late-night-with-conan-obrien-9887638-328-2841.gif">
-</div>
-
-<div ng-show="user=='Lang'">
-    <header>
-        <nav class="navbar navbar-inverse">
-            <div class="topWidth">
-                <div class="navbar-header">
-                    <a class='navbar-brand'><img style='display:inline; width:200px;' src="http://www.lockheedmartin.com/etc/designs/lockheedmartin/clientlibs_newUS/us/refresh/LM-logo.png"></span>Project X - Physical Hardware Software List (PHSL)</a>
-                </div>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#/all"><i class="fa fa-home"></i>ALL</a></li>
-                    <li><a><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></li>
-                    
-                    <li class="dropdown">
-                        <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subsystem <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#/avionics"><i class="fa fa-home"></i>Avionics</a></li>
-                            <li><a href="#/controls"><i class="fa fa-home"></i>Controls</a></li>
-                            <li><a href="#/initiation"><i class="fa fa-home"></i>Initiation</a></li>
-                            <li><a href="#/gse"><i class="fa fa-home"></i>GSE</a></li>
-                            <li><a href="#/propulsion"><i class="fa fa-home"></i>Propulsion</a></li>
-                            <li><a href="#/power"><i class="fa fa-home"></i>Power</a></li>
-                            <li><a href="#/rf"><i class="fa fa-home"></i>RF</a></li>
-                            <li><a href="#/structures"><i class="fa fa-home"></i>Structures</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stage View<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#/NF"><i class="fa fa-home"></i><span class="glyphicon glyphicon-eject" aria-hidden="true"></span>Nose Fairing</a></li>
-                            <li><a href="#/PA"><i class="fa fa-home"></i><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Payload Adapter</a></li>
-                            <li><a href="#/SS"><i class="fa fa-home"></i><span class="glyphicon glyphicon-stop" aria-hidden="true"></span>Second Stage</a></li>
-                            <li><a href="#/IS"><i class="fa fa-home"></i><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Inter Stage</a></li>
-                            <li><a href="#/FS"><i class="fa fa-home"></i><span class="glyphicon glyphicon-stop" aria-hidden="true"></span>First Stage</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li><a><span class="glyphicon glyphicon-resize-horizontal" aria-hidden="true"></span></a></li>
-                    <li><a href="#/new"><i class="fa fa-home"></i>new</a></li>
-                    
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-<style type="text/css">
     .row{
         width:100%;
         /*line-height:0px;*/
@@ -122,242 +67,297 @@
     }
 </style>
 
-<div class="row">
-    <label class='pull-left'>__ Logged in as: {{user}}</label>
-    <!--<label><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></label>-->
+</head>
 
-    <label>Name: <input placeholder='Showing all Components' ng-model="nameSearch"></label>
-    <label>Domain: <input placeholder='Showing all domians' ng-model="domainSearch"></label>
-    <label>Stage: <input placeholder='Showing all stages' ng-model="stageSearch"></label>
-    <label>Description: <input placeholder='Showing all descriptions' ng-model="descriptionSearch"></label>
-</div>
-<div class="ui grid">
+<body>
+    <!--sytle='padding:0;'-->
+    <!--<div ng-show="user != 'Lang'">-->
+    <!--    <img style='width:100%' src="https://lishacauthen.files.wordpress.com/2013/04/conan-finger-wave-late-night-with-conan-obrien-9887638-328-2841.gif">-->
+    <!--</div>ng-show="user == 'Lang'"-->
 
-    <div class="col-md-11 pull-right container">
+    <div >
+        <header>
+            <nav class="navbar navbar-inverse">
+                <div class="topWidth">
+                    <div class="navbar-header">
+                        <a class='navbar-brand'><img style='display:inline; width:200px;' src="http://www.lockheedmartin.com/etc/designs/lockheedmartin/clientlibs_newUS/us/refresh/LM-logo.png">Project X - Physical Hardware Software List (PHSL)</a>
+                    </div>
 
-        <div id="component-list" class="row">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#/all"><i class="fa fa-home"></i>ALL</a></li>
+                        <li><a><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></li>
 
-            <!--LOOP OVER THE TODOS IN $scope.todos -->
+                        <li class="dropdown">
+                            <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Subsystem <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/avionics"><i class="fa fa-home"></i>Avionics</a></li>
+                                <li><a href="#/controls"><i class="fa fa-home"></i>Controls</a></li>
+                                <li><a href="#/initiation"><i class="fa fa-home"></i>Initiation</a></li>
+                                <li><a href="#/gse"><i class="fa fa-home"></i>GSE</a></li>
+                                <li><a href="#/propulsion"><i class="fa fa-home"></i>Propulsion</a></li>
+                                <li><a href="#/power"><i class="fa fa-home"></i>Power</a></li>
+                                <li><a href="#/rf"><i class="fa fa-home"></i>RF</a></li>
+                                <li><a href="#/structures"><i class="fa fa-home"></i>Structures</a></li>
+                            </ul>
+                        </li>
 
-            <div class="panel">
-                <!-- Default panel contents -->
-                <div class="panel-heading wellleft"><h2 class='topText'>{{nameSearch.toUpperCase()}} {{domainSearch.toUpperCase()}} {{stageSearch.toUpperCase()}} {{descriptionSearch.toUpperCase()}}</h2></div>
-                <!-- Table -->
-                <table class="table">
-                    <tr class="title">
-                        <th>#</th>
-                        <th>Component name</th>
-                        <th>WBS</th>
-                        <th>Image</th>
-                        <th>Domain</th>
-                        <th>Responsible Engineer</th>
-                        <th>Stage</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>FTU</th>
-                        <th>EDU</th>
-                        <th>GTU</th>
-                        <th>MM_DM</th>
-                        <th>Make Vs Buy</th>
-                        <th>Weight</th>
-                        <th>Power</th>
-                        <th>Size</th>
-                        <th>Vendor</th>
-                        <th>Cost</th>
-                        <th>Added</th>
-                    </tr> <!--{domain:searchText, stage:FS}-->
-                    <tr ng-repeat="component in components| filter:{name: nameSearch, domain:domainSearch, stage:stageSearch, description:descriptionSearch}"> <!--{name: searchText, second: none}"-->
-                        <td><p>{{component.number}}</p>
-                            <button class="btn btn-xs" ng-init='count_more = 1' ng-click="count_more = count_more + 1"><span ng-show="count_more % 2 === 0" class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span><span ng-show="count_more % 2 != 0" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
-                            <div sytle="display: inline-block;" ng-show="count_more % 2 === 0" role="group">
-                                                        <!--<tr ng-if="count_more % 2 === 0">-->
-                            <div class='well'>
-                                <p>7/29/2016 - Lang Kenney - I think this is incorectly sized</p>
-                                <hr>
-                                <p>7/31/2016 - Mark Simons - Looked again at vendor specs and looks correct</p>
-                                <hr>
-                                <p>7/31/2016 - Lang Kenney - Cool. My mistake. Small light box</p>
-                            </div>    
-                                
-                                <button class="btn btn-danger btn-sm btn-block" type="submit" ng-click="deleteComponent(component._id)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-                                <button class="btn btn-warning btn-sm btn-block" ng-init='count_edit = 1' ng-click="count_edit = count_edit + 1">Edit<span ng-show="count_edit % 2 === 0" class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span><span ng-show="count_edit % 2 != 0" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
-                                <form ng-show="count_edit % 2 === 0">
-                                    <hr>
-                                    <div>
-                                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR ng-model="formData.text"  <span class="glyphicon glyphicon-pencil" aria-hidden="true">-->
-                                        <table>
-                                            <tr><td>{{component.number}}</td></tr>
-                                            <tr><td>Name</td><td><input type="text" name="name" ng-model="component.name"></td></tr>
-                                            <tr><td>WBS:</td><td><input type="text" ng-model="component.WBS"></td></tr>
-                                            <tr><td>Image:</td><td><input type="text" ng-model="component.image"></td></tr>
-                                            <tr><td>Domain:</td>
-                                                <td><!--<input type="text" placeholder="domain" ng-model="domain">-->
-                                                    <select ng-model="component.domain">
-                                                        <option value="avionics">Avionics</option>
-                                                        <option value="controls">Controls</option>
-                                                        <option value="GSE">GSE</option>
-                                                        <option value="initiation">Initiation</option>
-                                                        <option value="propulsion">Propulsion</option>
-                                                        <option value="power">Power</option>
-                                                        <option value="RF">RF</option>
-                                                        <option value="structures ">Structures </option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr><td>Responsible Engineer:</td><td><input type="text" ng-model="component.responsibleEngineer"></td></tr>
-                                            <tr><td>Stage:</td>
-                                                <td>
-                                                    <!--<input type="text" placeholder="stage" ng-model="stage">-->
-                                                    <select ng-model="component.stage">
-                                                        <option value="FS">First Stage (FS)</option>
-                                                        <option value="IS">Inter Stage (IS)</option>
-                                                        <option value="NF">Nose Fairing (NF)</option>
-                                                        <option value="PA">Payload Adapter (PA)</option>
-                                                        <option value="SS">Second Stage (SS)</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr><td>description:</td><td><input type="text" name="description" ng-model="component.description"></td></tr>
-                                            <tr><td>quantity:</td><td><input type="number" name="quantity" ng-model="component.quantity"></td></tr>
-                                            <tr><td>FTU:</td><td><input type="number" ng-model="component.FTU"></td></tr>
-                                            <tr><td>EDU:</td><td><input type="number" ng-model="component.EDU"></td></tr>
-                                            <tr><td>GTU:</td><td><input type="number" ng-model="component.GTU"></td></tr>
-                                            <tr><td>MM_DM:</td><td><input type="number" ng-model="component.MM_DM">
-                                            <tr><td>makeVsBuy:</td>
-                                                <td>
-                                                    <!--<input type="text" placeholder="makeVsBuy" ng-model="makeVsBuy">-->
-                                                    <select ng-model="component.makeVsBuy">
-                                                        <option value="Make">Make</option>
-                                                        <option value="Buy">Buy</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr><td>weight:</td><td><input type="number" ng-model="component.weight"></td></tr>
-                                            <tr><td>power:</td><td><input type="number" ng-model="component.power"></td></tr>
-                                            <tr><td>size:</td><td><input type="text" ng-model="component.size"></td></tr>
-                                            <tr><td>vendor:</td><td><input type="text" ng-model="component.vendor"></td></tr>
-                                            <tr><td>cost:</td><td><input type="number" ng-model="component.cost"></td></tr>
-                                        </table>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Stage View<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/NF"><i class="fa fa-home"></i><span class="glyphicon glyphicon-eject" aria-hidden="true"></span>Nose Fairing</a></li>
+                                <li><a href="#/PA"><i class="fa fa-home"></i><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Payload Adapter</a></li>
+                                <li><a href="#/SS"><i class="fa fa-home"></i><span class="glyphicon glyphicon-stop" aria-hidden="true"></span>Second Stage</a></li>
+                                <li><a href="#/IS"><i class="fa fa-home"></i><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Inter Stage</a></li>
+                                <li><a href="#/FS"><i class="fa fa-home"></i><span class="glyphicon glyphicon-stop" aria-hidden="true"></span>First Stage</a></li>
+                            </ul>
+                        </li>
 
+                        <li><a><span class="glyphicon glyphicon-resize-horizontal" aria-hidden="true"></span></a></li>
+                        <li><a href="#/new"><i class="fa fa-home"></i>new</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+
+
+        <div class="row">
+            <label class='pull-left'>__ Logged in as: {{user}}</label>
+            <!--<label><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></label>-->
+
+            <label>Name: <input placeholder='Showing all Components' ng-model="nameSearch"></label>
+            <label>Domain: <input placeholder='Showing all domians' ng-model="domainSearch"></label>
+            <label>Stage: <input placeholder='Showing all stages' ng-model="stageSearch"></label>
+            <label>Description: <input placeholder='Showing all descriptions' ng-model="descriptionSearch"></label>
+        </div>
+        <div class="ui grid">
+
+            <div class="col-md-11 pull-right container">
+
+                <div id="component-list" class="row">
+
+                    <!--LOOP OVER THE TODOS IN $scope.todos -->
+
+                    <div class="panel">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading wellleft"><h2 class='topText'>{{nameSearch.toUpperCase()}} {{domainSearch.toUpperCase()}} {{stageSearch.toUpperCase()}} {{descriptionSearch.toUpperCase()}}</h2></div>
+                        <!-- Table -->
+                        <table class="table">
+                            <tr class="title">
+                                <th>#</th>
+                                <th>Component name</th>
+                                <th>WBS</th>
+                                <th>Image</th>
+                                <th>Domain</th>
+                                <th>Responsible Engineer</th>
+                                <th>Stage</th>
+                                <th>Description</th>
+                                <th>Quantity</th>
+                                <th>FTU</th>
+                                <th>EDU</th>
+                                <th>GTU</th>
+                                <th>MM_DM</th>
+                                <th>Make Vs Buy</th>
+                                <th>Weight</th>
+                                <th>Power</th>
+                                <th>Size</th>
+                                <th>Vendor</th>
+                                <th>Cost</th>
+                                <th>Added</th>
+                            </tr> <!--{domain:searchText, stage:FS}-->
+                            <tr ng-repeat="component in components| filter:{name: nameSearch, domain:domainSearch, stage:stageSearch, description:descriptionSearch}"> <!--{name: searchText, second: none}"-->
+                                <td><p>{{component.number}}</p>
+                                    <button class="btn btn-xs" ng-init='count_more = 1' ng-click="count_more = count_more + 1"><span ng-show="count_more % 2 === 0" class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span><span ng-show="count_more % 2 != 0" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+                                    <div sytle="display: inline-block;" ng-show="count_more % 2 === 0" role="group">
+                                        <!--<tr ng-if="count_more % 2 === 0">-->
+                                        <div class='well'>
+                                            <p>7/29/2016 - Lang Kenney - I think this is incorectly sized</p>
+                                            <hr>
+                                            <p>7/31/2016 - Mark Simons - Looked again at vendor specs and looks correct</p>
+                                            <hr>
+                                            <p>7/31/2016 - Lang Kenney - Cool. My mistake. Small light box</p>
                                         </div>
-                                        <!-- createToDo() WILL CREATE NEW Components -->
-                                        <button class="btn btn-success btn-lg btn-block" type="submit" ng-click="editComponent(component._id, component)">Edit component</button>
-                                        <!-- Delete ToDo() WILL DELETE TODOS -->
-                                        <!--<button type="submit" class="btn btn-danger btn-lg" ng-click="deleteTodo(todo._id)">Delete</button>-->
-                                    </form>
-                            </div>
-                        
-                        </td>
-                        <td>{{component.name}}</td>
-                        <td>{{component.WBS}}</td>
-                        <td>{{component.image}}</td>
-                        <td>{{component.domain}}</td>
-                        <td>{{component.responsibleEngineer}}</td>
-                        <td>{{component.stage}}</td>
-                        <td>{{component.description}}</td>
-                        <td>{{component.quantity}}</td>
-                        <td>{{component.FTU}}</td>
-                        <td>{{component.EDU}}</td>
-                        <td>{{component.GTU}}</td>
-                        <td>{{component.MM_DM}}</td>
-                        <td>{{component.makeVsBuy}}</td>
-                        <td>{{component.weight}}</td>
-                        <!--{{weightAdd(component.weight)}}-->
-                        <td>{{component.power}}</td>
-                        <td>{{component.size}}</td>
-                        <td>{{component.vendor}}</td>
-                        <td>{{component.cost}}</td>
-                        <td>{{component.added| date:'yyyy-MM-dd' }}</td>
-                    <!--{{ weightAdd() }}-->
-                    </tr>
 
-                </table>
-                <!--console.log($scope)-->
+                                        <button class="btn btn-danger btn-sm btn-block" type="submit" ng-click="deleteComponent(component._id)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                                        <button class="btn btn-warning btn-sm btn-block" ng-init='count_edit = 1' ng-click="count_edit = count_edit + 1">Edit<span ng-show="count_edit % 2 === 0" class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span><span ng-show="count_edit % 2 != 0" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+                                        <form ng-show="count_edit % 2 === 0">
+                                            <hr>
+                                            <div>
+                                                <!-- BIND THIS VALUE TO formData.text IN ANGULAR ng-model="formData.text"  <span class="glyphicon glyphicon-pencil" aria-hidden="true">-->
+                                                <table>
+                                                    <tr><td>{{component.number}}</td></tr>
+                                                    <tr><td>Name</td><td><input type="text" name="name" ng-model="component.name"></td></tr>
+                                                    <tr><td>WBS:</td><td><input type="text" ng-model="component.WBS"></td></tr>
+                                                    <tr><td>Image:</td><td><input type="text" ng-model="component.image"></td></tr>
+                                                    <tr><td>Domain:</td>
+                                                        <td><!--<input type="text" placeholder="domain" ng-model="domain">-->
+                                                            <select ng-model="component.domain">
+                                                                <option value="avionics">Avionics</option>
+                                                                <option value="controls">Controls</option>
+                                                                <option value="GSE">GSE</option>
+                                                                <option value="initiation">Initiation</option>
+                                                                <option value="propulsion">Propulsion</option>
+                                                                <option value="power">Power</option>
+                                                                <option value="RF">RF</option>
+                                                                <option value="structures ">Structures </option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td>Responsible Engineer:</td><td><input type="text" ng-model="component.responsibleEngineer"></td></tr>
+                                                    <tr><td>Stage:</td>
+                                                        <td>
+                                                            <!--<input type="text" placeholder="stage" ng-model="stage">-->
+                                                            <select ng-model="component.stage">
+                                                                <option value="FS">First Stage (FS)</option>
+                                                                <option value="IS">Inter Stage (IS)</option>
+                                                                <option value="NF">Nose Fairing (NF)</option>
+                                                                <option value="PA">Payload Adapter (PA)</option>
+                                                                <option value="SS">Second Stage (SS)</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td>description:</td><td><input type="text" name="description" ng-model="component.description"></td></tr>
+                                                    <tr><td>quantity:</td><td><input type="number" name="quantity" ng-model="component.quantity"></td></tr>
+                                                    <tr><td>FTU:</td><td><input type="number" ng-model="component.FTU"></td></tr>
+                                                    <tr><td>EDU:</td><td><input type="number" ng-model="component.EDU"></td></tr>
+                                                    <tr><td>GTU:</td><td><input type="number" ng-model="component.GTU"></td></tr>
+                                                    <tr><td>MM_DM:</td><td><input type="number" ng-model="component.MM_DM">
+                                                    <tr><td>makeVsBuy:</td>
+                                                        <td>
+                                                            <!--<input type="text" placeholder="makeVsBuy" ng-model="makeVsBuy">-->
+                                                            <select ng-model="component.makeVsBuy">
+                                                                <option value="Make">Make</option>
+                                                                <option value="Buy">Buy</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td>weight:</td><td><input type="number" ng-model="component.weight"></td></tr>
+                                                    <tr><td>power:</td><td><input type="number" ng-model="component.power"></td></tr>
+                                                    <tr><td>size:</td><td><input type="text" ng-model="component.size"></td></tr>
+                                                    <tr><td>vendor:</td><td><input type="text" ng-model="component.vendor"></td></tr>
+                                                    <tr><td>cost:</td><td><input type="number" ng-model="component.cost"></td></tr>
+                                                </table>
+
+                                            </div>
+                                            <!-- createToDo() WILL CREATE NEW Components -->
+                                            <button class="btn btn-success btn-lg btn-block" type="submit" ng-click="editComponent(component._id, component)">Edit component</button>
+                                            <!-- Delete ToDo() WILL DELETE TODOS -->
+                                            <!--<button type="submit" class="btn btn-danger btn-lg" ng-click="deleteTodo(todo._id)">Delete</button>-->
+                                        </form>
+                                    </div>
+
+                                </td>
+                                <td>{{component.name}}</td>
+                                <td>{{component.WBS}}</td>
+                                <td>{{component.image}}</td>
+                                <td>{{component.domain}}</td>
+                                <td>{{component.responsibleEngineer}}</td>
+                                <td>{{component.stage}}</td>
+                                <td>{{component.description}}</td>
+                                <td>{{component.quantity}}</td>
+                                <td>{{component.FTU}}</td>
+                                <td>{{component.EDU}}</td>
+                                <td>{{component.GTU}}</td>
+                                <td>{{component.MM_DM}}</td>
+                                <td>{{component.makeVsBuy}}</td>
+                                <td>{{component.weight}}</td>
+                                <!--{{weightAdd(component.weight)}}-->
+                                <td>{{component.power}}</td>
+                                <td>{{component.size}}</td>
+                                <td>{{component.vendor}}</td>
+                                <td>{{component.cost}}</td>
+                                <td>{{component.added| date:'yyyy-MM-dd' }}</td>
+                                <!--{{ weightAdd() }}-->
+                            </tr>
+
+                        </table>
+                        <!--console.log($scope)-->
+                    </div>
+                </div>
+
+                <button class='pull-left btn btn-primary bottom' ng-init='count_add = 1' ng-click="count_add = count_add + 1" data-copied-hint="What!">Add A New Component</button>
+                <form ng-show="count_add % 2 === 0" class="well">
+                    <hr>
+                    <div>
+                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR ng-model="formData.text"-->
+                        <table>
+                            <tr><td>{{components.length + 1}}:</td></tr>
+                            <tr><td>Name</td><td><input type="text" placeholder="Component Name" ng-model="name" required></td></tr>
+                            <tr><td>WBS:</td><td><input type="text" placeholder="WBS" ng-model="WBS"></td></tr>
+                            <tr><td>Image:</td><td><input type="text" placeholder="image" ng-model="image"></td></tr>
+                            <tr><td>Domain:</td>
+                                <td><!--<input type="text" placeholder="domain" ng-model="domain">-->
+                                    <select ng-model="domain">
+                                        <option value="avionics">Avionics</option>
+                                        <option value="controls">Controls</option>
+                                        <option value="GSE">GSE</option>
+                                        <option value="initiation">Initiation</option>
+                                        <option value="propulsion">Propulsion</option>
+                                        <option value="power">Power</option>
+                                        <option value="RF">RF</option>
+                                        <option value="structures ">Structures </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr><td>Responsible Engineer:</td><td><input type="text" placeholder="responsibleEngineer" ng-model="responsibleEngineer"></td></tr>
+                            <tr><td>Stage:</td>
+                                <td>
+                                    <!--<input type="text" placeholder="stage" ng-model="stage">-->
+                                    <select ng-model="stage">
+                                        <option value="FS">First Stage (FS)</option>
+                                        <option value="IS">Inter Stage (IS)</option>
+                                        <option value="NF">Nose Fairing (NF)</option>
+                                        <option value="PA">Payload Adapter (PA)</option>
+                                        <option value="SS">Second Stage (SS)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr><td>description:</td><td><input type="text" placeholder="description" ng-model="description"></td></tr>
+                            <tr><td>quantity:</td><td><input type="number" placeholder="quantity" ng-model="quantity"></td></tr>
+                            <tr><td>FTU:</td><td><input type="number" placeholder="FTU" ng-model="FTU"></td></tr>
+                            <tr><td>EDU:</td><td><input type="number" placeholder="EDU" ng-model="EDU"></td></tr>
+                            <tr><td>GTU:</td><td><input type="number" placeholder="GTU" ng-model="GTU"></td></tr>
+                            <tr><td>MM_DM:</td><td><input type="number" placeholder="MM_DM" ng-model="MM_DM">
+                            <tr><td>makeVsBuy:</td>
+                                <td>
+                                    <!--<input type="text" placeholder="makeVsBuy" ng-model="makeVsBuy">-->
+                                    <select ng-model="makeVsBuy">
+                                        <option value="Make">Make</option>
+                                        <option value="Buy">Buy</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr><td>weight:</td><td><input type="number" placeholder="weight" ng-model="weight"></td></tr>
+                            <tr><td>power:</td><td><input type="number" placeholder="power" ng-model="power"></td></tr>
+                            <tr><td>size:</td><td><input type="text" placeholder="size" ng-model="size"></td></tr>
+                            <tr><td>vendor:</td><td><input type="text" placeholder="vendor" ng-model="vendor"></td></tr>
+                            <tr><td>cost:</td><td><input type="number" placeholder="cost" ng-model="cost"></td></tr>
+                        </table>
+
+                    </div>
+
+                    <!-- createToDo() WILL CREATE NEW Components -->
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" ng-click="createComponent()">Add new component</button>
+                    <!-- Delete ToDo() WILL DELETE TODOS -->
+                    <!--<button type="submit" class="btn btn-danger btn-lg" ng-click="deleteTodo(todo._id)">Delete</button>-->
+                </form>
+            </div>
+
+            <div class="col-md-1 pull-left wellleft">
+                <div>
+                    <h2>Weight:</h2>
+                    <!--<h3>Total: {{ getTotal() }}</h3>-->
+                    <h3 ng-model='weightTotal'>{{ weightAdd()}} lbf</h3>
+                    <hr>
+                    <h2>Cost:</h2>
+                    <h3 ng-model='costTotal'>${{ costAdd()}} </h3>
+                    <hr>
+                    <h2>Power:</h2>
+                    <h3>{{ powerAdd()}} W</h3>
+
+                </div>
             </div>
         </div>
-
-        <button class='pull-left btn btn-primary bottom' ng-init='count_add = 1' ng-click="count_add = count_add + 1" data-copied-hint="What!">Add A New Component</button>
-        <form ng-show="count_add % 2 === 0" class="well">
-            <hr>
-            <div>
-                <!-- BIND THIS VALUE TO formData.text IN ANGULAR ng-model="formData.text"-->
-                <table>
-                    <tr><td>{{components.length+1}}:</td></tr>
-                    <tr><td>Name</td><td><input type="text" placeholder="Component Name" ng-model="name" required></td></tr>
-                    <tr><td>WBS:</td><td><input type="text" placeholder="WBS" ng-model="WBS"></td></tr>
-                    <tr><td>Image:</td><td><input type="text" placeholder="image" ng-model="image"></td></tr>
-                    <tr><td>Domain:</td>
-                        <td><!--<input type="text" placeholder="domain" ng-model="domain">-->
-                            <select ng-model="domain">
-                                <option value="avionics">Avionics</option>
-                                <option value="controls">Controls</option>
-                                <option value="GSE">GSE</option>
-                                <option value="initiation">Initiation</option>
-                                <option value="propulsion">Propulsion</option>
-                                <option value="power">Power</option>
-                                <option value="RF">RF</option>
-                                <option value="structures ">Structures </option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr><td>Responsible Engineer:</td><td><input type="text" placeholder="responsibleEngineer" ng-model="responsibleEngineer"></td></tr>
-                    <tr><td>Stage:</td>
-                        <td>
-                            <!--<input type="text" placeholder="stage" ng-model="stage">-->
-                            <select ng-model="stage">
-                                <option value="FS">First Stage (FS)</option>
-                                <option value="IS">Inter Stage (IS)</option>
-                                <option value="NF">Nose Fairing (NF)</option>
-                                <option value="PA">Payload Adapter (PA)</option>
-                                <option value="SS">Second Stage (SS)</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr><td>description:</td><td><input type="text" placeholder="description" ng-model="description"></td></tr>
-                    <tr><td>quantity:</td><td><input type="number" placeholder="quantity" ng-model="quantity"></td></tr>
-                    <tr><td>FTU:</td><td><input type="number" placeholder="FTU" ng-model="FTU"></td></tr>
-                    <tr><td>EDU:</td><td><input type="number" placeholder="EDU" ng-model="EDU"></td></tr>
-                    <tr><td>GTU:</td><td><input type="number" placeholder="GTU" ng-model="GTU"></td></tr>
-                    <tr><td>MM_DM:</td><td><input type="number" placeholder="MM_DM" ng-model="MM_DM">
-                    <tr><td>makeVsBuy:</td>
-                        <td>
-                            <!--<input type="text" placeholder="makeVsBuy" ng-model="makeVsBuy">-->
-                            <select ng-model="makeVsBuy">
-                                <option value="Make">Make</option>
-                                <option value="Buy">Buy</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr><td>weight:</td><td><input type="number" placeholder="weight" ng-model="weight"></td></tr>
-                    <tr><td>power:</td><td><input type="number" placeholder="power" ng-model="power"></td></tr>
-                    <tr><td>size:</td><td><input type="text" placeholder="size" ng-model="size"></td></tr>
-                    <tr><td>vendor:</td><td><input type="text" placeholder="vendor" ng-model="vendor"></td></tr>
-                    <tr><td>cost:</td><td><input type="number" placeholder="cost" ng-model="cost"></td></tr>
-                </table>
-
-            </div>
-
-            <!-- createToDo() WILL CREATE NEW Components -->
-            <button class="btn btn-primary btn-lg btn-block" type="submit" ng-click="createComponent()">Add new component</button>
-            <!-- Delete ToDo() WILL DELETE TODOS -->
-            <!--<button type="submit" class="btn btn-danger btn-lg" ng-click="deleteTodo(todo._id)">Delete</button>-->
-        </form>
     </div>
-
-    <div class="col-md-1 pull-left wellleft">
-        <div>
-            <h2>Weight:</h2>
-            <!--<h3>Total: {{ getTotal() }}</h3>-->
-            <h3 ng-model='weightTotal'>{{ weightAdd()}} lbf</h3>
-            <hr>
-            <h2>Cost:</h2>
-            <h3 ng-model='costTotal'>${{ costAdd()}} </h3>
-            <hr>
-            <h2>Power:</h2>
-            <h3>{{ powerAdd()}} W</h3>
-
-        </div>
-    </div>
-</div>
-</div>
 

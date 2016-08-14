@@ -5,6 +5,12 @@ var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var seedDB      = require("./seeds");
+var passport    = require("passport");
+var LocalStrategy = require("passport-local");
+var mongoose = require("mongoose");
+var passportLocalMongoose = require("passport-local-mongoose");
+// User        = require("./models/user"),
+
 // var middleware = require("/middleware/index.js"); //will auto include /index.js
 //mongoose.connect('')
 //mongoose.connect("mongodb://localhost/to-do");
@@ -27,7 +33,26 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 app.use(methodOverride());
 
-//Define mongoose schema - 
+//PASSPORT CONFIGURATION
+app.use(require("express-session")({
+    secret: "This is the secret phrase",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+// passport.use(new LocalStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
+
+// app.use(function(req, res, next){
+//     res.locals.currentUser = req.user;
+//     res.locals.error = req.flash("error");
+//     res.locals.success = req.flash("success");
+//     next();
+// });
+
+//Define Component mongoose schema - 
 var componentSchema = new mongoose.Schema({
     number: Number,
     name: String,
@@ -54,8 +79,75 @@ var componentSchema = new mongoose.Schema({
 //Model
 var Component = mongoose.model('Component', componentSchema);
 
-//If you want to see the component library
+//If you want to seed the component library
 seedDB(Component);
+
+//USER SCHEMA
+var UserSchema = new mongoose.Schema({
+    username: String,
+    password: String
+});
+
+UserSchema.plugin(passportLocalMongoose);
+
+var User = mongoose.model("User", UserSchema);
+
+//Middleware 
+// var Campground = require("../models/campground");
+// var Comment = require("../models/comment");
+var middlewareObj = {};
+
+middlewareObj.checkCampgroundOwnership = function(req, res, next){
+    if(req.isAuthenticated()){
+        Campground.findById(req.params.id, function(err, foundCampground){
+            if(err){
+                req.flash("error", "Campground not found");
+                res.redirect("back");
+            } else {
+                if(foundCampground.author.id.equals(req.user._id)) {
+                    next();
+                } else {
+                    req.flash("error", "You do not have the correct permissions to do this");
+                    res.redirect("back");
+                }
+            }
+        });
+    } else {
+        req.flash("error", "You must be logged in to do this");
+        res.redirect("back");
+    }
+}
+
+
+middlewareObj.checkCommentOwnership = function(req, res, next){
+    if(req.isAuthenticated()){
+        Comment.findById(req.params.comment_id, function(err, foundComment){
+            if(err){
+                res.redirect("back");
+            } else {
+                if(foundComment.author.id.equals(req.user._id)) {
+                    next();
+                } else {
+                    req.flash("error", "You do not have the correct permissions to do this");
+                    res.redirect("back");
+                }
+            }
+        });
+    } else {
+        req.flash("error", "You must to be logged in to do this");
+        res.redirect("back");
+    }
+}
+
+middlewareObj.isLoggedIn = function(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    // req.flash("error", "You must to be logged in to do this")
+    res.redirect("/login");
+}
+
+module.exports = middlewareObj
 
 //READ ALL COMPONENTS
 // V - Express application method - app.get(path, callback [, callback ...]) -http://expressjs.com/en/api.html#app.get
@@ -173,9 +265,15 @@ app.delete('/api/components/:id', function(req, res){
 });
 
 //Angular application send!
-app.get('*', function(req, res){
+
+//login form
+// app.get("", function(req, res) {
+//     res.sendFile('public/login.html');
+// });
+
+app.get("*", function(req, res){
     // V - express responce method - res.sendFile(path [, options] [, fn])
-    res.sendfile('public/index.html');
+    res.sendFile('public/index.html');
 });
 
 app.listen(process.env.PORT,process.env.IP,function(){

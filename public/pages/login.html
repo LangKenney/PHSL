@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" ng-app='PHSLApp'>
+<html lang="en-us">
     <head>
         <!-- META -->
         <meta charset="utf-8">
@@ -39,9 +39,26 @@
             ga('send', 'pageview');
 
         </script>
+        
+<link href="/stylesheets/landing.css" rel="stylesheet">
 
-    <div ng-view></div>
+<div id="login-modal">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <!--<img style=' width:200px;' src="http://www.nasa.gov/sites/default/files/images/nasaLogo-570x450.png"></span>-->
+            <!--<img sytle='width:150px;' src='http://www.epslogos.net/logo_images/logos/NAVY-SSP.jpg'><span>-->
+            <!--<img style=' width:420px;' src="http://www.lockheedmartin.com/etc/designs/lockheedmartin/clientlibs_newUS/us/refresh/LM-logo.png">-->
 
-
+            <h1 style='font-size:50px;'>Project X</h1>
+            <h1>Physical Hardware Software List (PHSL)</h1>
+            <br>
+            <form action="#/all">
+                <input type="text" name="user" placeholder="Username">
+                <input type="password" name="pass" placeholder="Password">
+                <input type="submit" name="login" class="btn btn-lg btn-primary" value="Login">
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

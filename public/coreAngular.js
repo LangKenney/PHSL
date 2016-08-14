@@ -4,8 +4,8 @@ PHSLApp.config(function ($routeProvider) {
 
     $routeProvider
             .when('/', {
-                templateUrl: 'pages/landing.html',
-                controller: 'mainController'
+                templateUrl: 'pages/login.html',
+                controller: 'loginController'
             })
             .when('/all', {
                 templateUrl: 'pages/all.html',
@@ -249,7 +249,7 @@ PHSLApp.controller('mainController', ['$scope', '$http', '$route','$filter', fun
                 weightTotal += (component.weight);
                 // console.log('Weight:'+weight.weight)
                 // console.log($scope.components.weight)
-            })
+            // })
             // for (var i = 0; i < $scope.components.length; i++) {
             //     //console.log(i)
             //     //console.log($scope.components.length)
@@ -258,6 +258,9 @@ PHSLApp.controller('mainController', ['$scope', '$http', '$route','$filter', fun
             // }
             // console.log(weightTotal)
             //$filter('filter')(component, mySearch)
+            // $filter('myfilter')($scope.components, component.weight, function(actual, expected){
+                
+            })
             return weightTotal;
         };
         
@@ -324,3 +327,8 @@ PHSLApp.controller('mainController', ['$scope', '$http', '$route','$filter', fun
         };
         //=========END SUMMING FUNCTIONS=========
 }]);
+
+PHSLApp.controller('loginController', ['$scope', '$http', '$route','$filter', function ($scope, $http, $route, $filter) {
+    
+}])
+
